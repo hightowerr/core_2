@@ -42,7 +42,7 @@ def process_content(content):
     
     # Split the text into smaller chunks
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
+        chunk_size=2000,
         chunk_overlap=200
     )
     texts = text_splitter.split_text(clean_text)

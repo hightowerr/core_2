@@ -18,7 +18,7 @@ class WebContentLoader:
             config (Config): Configuration object
         """
         self.config = config
-        self.embeddings = OpenAIEmbeddings()
+        self.embeddings = OpenAIEmbeddings(openai_api_key=config.get_openai_api_key())
     
     def fetch_content(self, url):
         """
