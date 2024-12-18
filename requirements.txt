@@ -1,0 +1,6 @@
+langchain-openai
+langchain-community
+langchain-chroma
+langchain-text-splitters
+requests
+beautifulsoup4
