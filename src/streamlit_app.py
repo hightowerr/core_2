@@ -5,6 +5,28 @@ from config import Config
 from web_loader import WebContentLoader
 from qa_engine import QAEngine
 
+def deduplicate_sources(source_documents):
+    """
+    Deduplicate source documents based on their content.
+    
+    Args:
+        source_documents (list): List of source documents.
+    
+    Returns:
+        list: Deduplicated source documents.
+    """
+    seen_content = set()
+    unique_docs = []
+    
+    for doc in source_documents:
+        # Normalize content by removing extra whitespace
+        normalized_content = ' '.join(doc.page_content.split())
+        if normalized_content not in seen_content:
+            seen_content.add(normalized_content)
+            unique_docs.append(doc)
+    
+    return unique_docs
+
 def main():
     """
     Streamlit application for web content Q&A.
@@ -44,12 +66,6 @@ def main():
                                 # Display answer
                                 st.subheader("Answer")
                                 st.write(result['answer'])
-                                
-                                # Display source documents
-                                if result['source_documents']:
-                                    st.subheader("Source Documents")
-                                    for i, doc in enumerate(result['source_documents'], 1):
-                                        st.text_area(f"Source {i}", value=doc.page_content, height=100)
                         else:
                             st.warning("Please enter a question.")
                 else:
