@@ -14,3 +14,5 @@ python-dotenv
 
 # Optional: Logging and monitoring
 # Add logging libraries if needed in future
+streamlit
+streamlit
