@@ -4,10 +4,16 @@ from utils import fetch_web_content, process_content, ask_question
 
 def main():
     # Initialize OpenAI model
+    url = input("Enter the URL of the web page to load: ")
+    
     # Fetch web content from the provided URL
-    # Process the content to prepare it for question answering
-    # Prompt the user for questions and provide answers using the model
-    pass
+    content = fetch_web_content(url)
+    
+    if content:
+        print("Web Page Content:")
+        print(content)
+    else:
+        print("Failed to fetch web page content.")
 
 if __name__ == "__main__":
     main()
