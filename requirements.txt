@@ -1,3 +1,6 @@
+# Web Content Q&A Application Dependencies
+
+# Core libraries
 langchain-openai
 langchain-community
 langchain-chroma
@@ -5,4 +8,9 @@ langchain-text-splitters
 requests
 beautifulsoup4
 chromadb
+
+# Configuration and environment management
 python-dotenv
+
+# Optional: Logging and monitoring
+# Add logging libraries if needed in future
